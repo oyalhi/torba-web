@@ -1,50 +1,13 @@
-import Stripe from "stripe";
-
-interface ProductWithPrices extends Stripe.Product {
-  prices: Stripe.Price[];
-}
+import { getProductsWithPrices } from "../../utils/stripe/stripe-utils";
 
 export default async function PricingPage() {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: "2023-10-16",
-  });
+  const { productsWithPrices, intervals } = await getProductsWithPrices();
 
-  const products = await stripe.products.list({
-    active: true,
-  });
-
-  const productWithPrices: ProductWithPrices[] = await Promise.all(
-    products.data.map(async (product) => {
-      const prices = await stripe.prices.list({
-        active: true,
-        product: product.id,
-      });
-
-      return {
-        ...product,
-        prices: prices.data,
-      };
-    })
-  );
-
-  const subscriptions = await stripe.subscriptions.list({
-    status: "active",
-  });
-
-  console.log(
-    "subscriptions:",
-    subscriptions.data.map((s) => s.customer)
-  );
-
-  const intervals = Array.from(
-    new Set(productWithPrices.flatMap((product) => product.prices.map((price) => price.recurring?.interval)))
-  );
-
-  const isSingleProductNoInterval = productWithPrices.length === 1 && intervals.length === 0;
-  const isSingleProductSingleInterval = productWithPrices.length === 1 && intervals.length === 1;
-  const isSingleProductMultipleIntervals = productWithPrices.length === 1 && intervals.length > 1;
-  const areMultipleProductsSingleInterval = productWithPrices.length > 1 && intervals.length === 1;
-  const areMultipleProductsMultipleIntervals = productWithPrices.length > 1 && intervals.length > 1;
+  const isSingleProductNoInterval = productsWithPrices.length === 1 && intervals.length === 0;
+  const isSingleProductSingleInterval = productsWithPrices.length === 1 && intervals.length === 1;
+  const isSingleProductMultipleIntervals = productsWithPrices.length === 1 && intervals.length > 1;
+  const areMultipleProductsSingleInterval = productsWithPrices.length > 1 && intervals.length === 1;
+  const areMultipleProductsMultipleIntervals = productsWithPrices.length > 1 && intervals.length > 1;
 
   return (
     <main style={{ width: "800px", margin: "0 auto" }}>
@@ -64,7 +27,7 @@ export default async function PricingPage() {
       {isSingleProductMultipleIntervals && (
         <div>
           {/* <p>Single product, multiple intervals</p> */}
-          {productWithPrices.map((product) => (
+          {productsWithPrices.map((product) => (
             <div
               key={product.id}
               style={{
