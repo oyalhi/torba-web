@@ -1,5 +1,4 @@
 import { NextRequest } from "next/server";
-import { appConfig } from "../../../utils/app-config";
 import { DexieUserToken, validateToken } from "../../../utils/auth/validate-token";
 import { getOrCreateStripeCustomer } from "../../../utils/stripe/stripe-utils";
 
@@ -41,7 +40,7 @@ export async function GET(request: NextRequest) {
   };
 
   try {
-    const response = await fetch(`${appConfig.dexie.dbUrl}/token`, {
+    const response = await fetch(`${process.env.DEXIE_CLOUD_DB_URL}/token`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

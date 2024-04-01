@@ -28,7 +28,7 @@ export async function validateToken(authHeader: string) {
   let isValidToken = false;
 
   try {
-    const response = await fetch(`${appConfig.dexie.dbUrl}/token/validate`, {
+    const response = await fetch(`${process.env.DEXIE_CLOUD_DB_URL}/token/validate`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

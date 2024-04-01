@@ -1,5 +1,4 @@
 import Stripe from "stripe";
-import { appConfig } from "../app-config";
 import { getCustomerById, getCustomerSubscriptionsWithProducts } from "../stripe/stripe-utils";
 
 export type DexieUserType = "eval" | "prod" | "client";
@@ -60,7 +59,7 @@ export async function manageSubscriptionStatusChange({
   const accessToken = await getDexieToken();
 
   try {
-    const response = await fetch(`${appConfig.dexie.dbUrl}/users`, {
+    const response = await fetch(`${process.env.DEXIE_CLOUD_DB_URL}/users`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -92,7 +91,7 @@ export async function getDexieUser({ email }: { email: string }) {
   const accessToken = await getDexieToken();
 
   try {
-    const response = await fetch(`${appConfig.dexie.dbUrl}/users/${email}`, {
+    const response = await fetch(`${process.env.DEXIE_CLOUD_DB_URL}/users/${email}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -116,7 +115,7 @@ export async function getDexieToken() {
   let accessToken: string = "";
 
   try {
-    const response = await fetch(`${appConfig.dexie.dbUrl}/token`, {
+    const response = await fetch(`${process.env.DEXIE_CLOUD_DB_URL}/token`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
