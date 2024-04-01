@@ -1,6 +1,7 @@
+import { jwtDecode } from "jwt-decode";
 import Stripe from "stripe";
+import { DexieUserToken } from "../auth/validate-token";
 import { getCustomerById, getCustomerSubscriptionsWithProducts } from "../stripe/stripe-utils";
-
 export type DexieUserType = "eval" | "prod" | "client";
 export interface DexieUser {
   userId: string;
@@ -104,7 +105,13 @@ export async function getDexieUser({ email }: { email: string }) {
   }
 }
 
+let cachedAccessToken: string | undefined = undefined;
+
 export async function getDexieToken() {
+  if (!isTokenExpired(cachedAccessToken)) {
+    return cachedAccessToken;
+  }
+
   const dexieRequestObject = {
     grant_type: "client_credentials",
     scopes: ["ACCESS_DB", "GLOBAL_READ", "GLOBAL_WRITE"],
@@ -132,5 +139,20 @@ export async function getDexieToken() {
     throw new Error("Failed to get access token");
   }
 
+  cachedAccessToken = accessToken;
   return accessToken;
+}
+
+export function isTokenExpired(token?: string): boolean {
+  if (!token) return true; // Treat missing token as expired token
+
+  try {
+    const decoded: DexieUserToken = jwtDecode(token);
+    const currentTime = Date.now() / 1000; // Convert to seconds
+    console.log("decoded:", decoded);
+    return decoded.exp <= currentTime; // Returns true if the token has expired
+  } catch (error) {
+    console.error("Error decoding token:", error);
+    return true; // Treat decoding errors as expired token for safety
+  }
 }
