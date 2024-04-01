@@ -30,8 +30,8 @@ export async function GET(request: NextRequest) {
   const dexieRequestObject = {
     grant_type: "client_credentials",
     scopes: ["ACCESS_DB"],
-    client_id: process.env.NEXT_PUBLIC_DEXIE_CLOUD_CLIENT_ID!,
-    client_secret: process.env.NEXT_PUBLIC_DEXIE_CLOUD_CLIENT_SECRET!,
+    client_id: process.env.DEXIE_CLOUD_CLIENT_ID!,
+    client_secret: process.env.DEXIE_CLOUD_CLIENT_SECRET!,
     claims: {
       sub: decoded.sub,
       email: decoded.email,

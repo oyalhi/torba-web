@@ -108,8 +108,8 @@ export async function getDexieToken() {
   const dexieRequestObject = {
     grant_type: "client_credentials",
     scopes: ["ACCESS_DB", "GLOBAL_READ", "GLOBAL_WRITE"],
-    client_id: process.env.NEXT_PUBLIC_DEXIE_CLOUD_CLIENT_ID!,
-    client_secret: process.env.NEXT_PUBLIC_DEXIE_CLOUD_CLIENT_SECRET!,
+    client_id: process.env.DEXIE_CLOUD_CLIENT_ID!,
+    client_secret: process.env.DEXIE_CLOUD_CLIENT_SECRET!,
   };
 
   let accessToken: string = "";
