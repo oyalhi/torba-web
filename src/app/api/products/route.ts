@@ -7,6 +7,7 @@ import {
   getOrCreateStripeCustomer,
   getProductsWithPrices,
 } from "../../../utils/stripe/stripe-utils";
+import Stripe from "stripe";
 
 const corsHeaders = {
   "Content-Type": "application/json",
@@ -50,7 +51,7 @@ export async function GET(request: NextRequest) {
     },
   });
 
-  const { subscribedProduct, subscription } = await getCustomerSubscriptionsWithProducts({ customerId: customer.id });
+  const { subscribedProduct, subscription } = await getCustomerSubscriptionsWithProducts({ customerId: customer?.id });
 
   manageSubscriptionStatusChange({ customerId: customer.id, isUpdateBilling: false, subscriptionId: "" });
 

@@ -1,12 +1,15 @@
 import Stripe from "stripe";
 import { stripe } from "./stripe-config";
 
-export async function getStripeCustomerByEmail(email: string) {
+export async function getStripeCustomerByEmail(email: string): Promise<Stripe.Customer | undefined> {
+  console.log("getStripeCustomerByEmail", email);
   const customers = await stripe.customers.list({ email });
+  console.log({ customer: customers.data[0] });
   return customers.data[0];
 }
 
 export async function createStripeCustomer(data: { email: string; metadata: { sub: string; name: string } }) {
+  console.log("createStripeCustomer", data.email);
   const newCustomer = await stripe.customers.create(data);
   if (!newCustomer) {
     throw new Error("Failed to create Stripe customer");
@@ -15,11 +18,13 @@ export async function createStripeCustomer(data: { email: string; metadata: { su
 }
 
 export async function getCustomerById(customerId: string) {
+  console.log("getCustomerById", customerId);
   return stripe.customers.retrieve(customerId);
 }
 
 export async function getOrCreateStripeCustomer(data: { email: string; metadata: { sub: string; name: string } }) {
-  return getStripeCustomerByEmail(data.email) ?? createStripeCustomer(data);
+  console.log("getOrCreateStripeCustomer", data.email);
+  return (await getStripeCustomerByEmail(data.email)) ?? (await createStripeCustomer(data));
 }
 
 interface ProductWithPrices extends Stripe.Product {
@@ -27,6 +32,7 @@ interface ProductWithPrices extends Stripe.Product {
 }
 
 export async function getProductsWithPrices() {
+  console.log("getProductsWithPrices");
   const products = await stripe.products.list({
     active: true,
   });
@@ -57,6 +63,7 @@ export async function getProductsWithPrices() {
 }
 
 export async function getCustomerSubscriptionsWithProducts({ customerId }: { customerId: string }) {
+  console.log("getCustomerSubscriptionsWithProducts", customerId);
   const subscriptions = await stripe.subscriptions.list({
     customer: customerId,
     status: "active",

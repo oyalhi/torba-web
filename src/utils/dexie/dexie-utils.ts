@@ -149,7 +149,6 @@ export function isTokenExpired(token?: string): boolean {
   try {
     const decoded: DexieUserToken = jwtDecode(token);
     const currentTime = Date.now() / 1000; // Convert to seconds
-    console.log("decoded:", decoded);
     return decoded.exp <= currentTime; // Returns true if the token has expired
   } catch (error) {
     console.error("Error decoding token:", error);
