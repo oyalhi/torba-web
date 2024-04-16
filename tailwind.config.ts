@@ -12,11 +12,20 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      borderRadius: {
+        "4xl": "2.4rem",
+      },
     },
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["dark", "light"],
+    themes: [
+      {
+        dark: {
+          primary: "#017280",
+        },
+      },
+    ],
   },
 };
 export default config;
