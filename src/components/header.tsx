@@ -15,7 +15,7 @@ export function Header() {
           onClick={() => {
             window.location.href = appConfig.clientUrl;
           }}>
-          Get Started
+          Try Now
         </button>
       </div>
     </nav>
