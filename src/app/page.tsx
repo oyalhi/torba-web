@@ -24,60 +24,62 @@ export default function Home() {
       <div className="hero text-slate-300">
         <div className="hero max-w-screen-lg mx-auto py-4">
           <div className="hero-content lg:flex-row-reverse flex-col-reverse">
-            <div className="hero bg-transparent text-slate-300">
-              {/* <Image
-                style={{ position: "absolute" }}
-                alt="hero"
-                src="/iphone-15-pro.png"
-                className="max-w-sm rounded-4xl shadow-2xl"
-                width={350}
-                height={300}
-              /> */}
-              {isClient ? (
-                <ReactPlayer
-                  config={{
-                    youtube: {
-                      playerVars: {
-                        controls: 0,
-                        modestbranding: 1,
-                        rel: 0,
-                        showinfo: 0,
-                        start: 1,
-                        autoplay: 1,
-                      },
-                      embedOptions: {
-                        allowfullscreen: false,
-                        frameBorder: 0,
-                        allow: "autoplay;",
-                      },
-                    },
-                  }}
-                  fallback={
-                    <Image
-                      alt="hero"
-                      src="/app-home.png"
-                      className="max-w-sm rounded-4xl shadow-2xl"
-                      width={300}
-                      height={300}
-                    />
-                  }
-                  height={300 * 2.1679}
-                  lazy="true"
-                  pip={false}
-                  playing
-                  playsinline
-                  url="https://youtu.be/4ZCQGkUnbzw"
-                  width={300}
-                />
-              ) : (
+            <div className="hero bg-transparent text-slate-300 relative">
+              <div className="rounded-4xl overflow-hidden">
                 <Image
+                  style={{ left: "45px", top: "-30px" }}
                   alt="hero"
-                  src="/app-home.png"
-                  className="max-w-sm rounded-4xl shadow-2xl"
-                  width={300}
-                  height={300}
+                  src="/iphone-15-pro.png"
+                  className="rounded-4xl absolute z-0"
+                  width={360}
+                  height={360}
                 />
-              )}
+                {isClient ? (
+                  <ReactPlayer
+                    style={{ zIndex: 1, position: "relative" }}
+                    config={{
+                      youtube: {
+                        playerVars: {
+                          controls: 0,
+                          modestbranding: 1,
+                          rel: 0,
+                          showinfo: 0,
+                          start: 0,
+                          autoplay: 0,
+                          fs: 0,
+                        },
+                        embedOptions: {
+                          allowfullscreen: true,
+                          frameBorder: 0,
+                        },
+                      },
+                    }}
+                    fallback={
+                      <Image
+                        alt="hero"
+                        src="/app-home.png"
+                        className="max-w-sm rounded-4xl shadow-2xl"
+                        width={300}
+                        height={300}
+                      />
+                    }
+                    height={300 * 2.1679}
+                    lazy="true"
+                    pip={false}
+                    playsinline
+                    url="https://youtu.be/4ZCQGkUnbzw"
+                    width={300}
+                  />
+                ) : (
+                  <Image
+                    alt="hero"
+                    src="/app-home.png"
+                    className="max-w-sm rounded-4xl shadow-2xl"
+                    width={300}
+                    height={300}
+                  />
+                )}
+              </div>
             </div>
             <div>
               <h1 className="text-5xl font-bold">Split expenses quickly and easily, online or offline</h1>
