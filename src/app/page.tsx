@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import ReactPlayer from "react-player";
 import { Header } from "../components/header";
 
 export default function Home() {
@@ -32,59 +31,25 @@ export default function Home() {
                   src="/iphone-15-pro.png"
                   className="rounded-4xl absolute z-0"
                   width={360}
-                  height={360}
+                  height={351}
                 />
-                {isClient ? (
-                  <ReactPlayer
-                    style={{ zIndex: 1, position: "relative" }}
-                    config={{
-                      youtube: {
-                        playerVars: {
-                          controls: 0,
-                          modestbranding: 1,
-                          rel: 0,
-                          showinfo: 0,
-                          start: 0,
-                          autoplay: 0,
-                          fs: 0,
-                        },
-                        embedOptions: {
-                          allowfullscreen: true,
-                          frameBorder: 0,
-                        },
-                      },
-                    }}
-                    fallback={
-                      <Image
-                        alt="hero"
-                        src="/app-home.png"
-                        className="max-w-sm rounded-4xl shadow-2xl"
-                        width={300}
-                        height={300}
-                      />
-                    }
-                    height={300 * 2.1679}
-                    lazy="true"
-                    pip={false}
-                    playsinline
-                    url="https://youtu.be/4ZCQGkUnbzw"
-                    width={300}
-                  />
-                ) : (
-                  <Image
-                    alt="hero"
-                    src="/app-home.png"
-                    className="max-w-sm rounded-4xl shadow-2xl"
-                    width={300}
-                    height={300}
-                  />
-                )}
+                <iframe
+                  className="rounded-4xl z-10 relative"
+                  id="player"
+                  width="300"
+                  height="651"
+                  src="https://www.youtube.com/embed/4ZCQGkUnbzw?rel=0&autohide=1&showinfo=0&wmode=opaque"
+                  title="YouTube video player"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
             </div>
             <div>
               <h1 className="text-5xl font-bold">Split expenses quickly and easily, online or offline</h1>
               <p className="text-xl py-6">
-                Torba Split Cost is a free tool to split expenses with your friends and family.
+                &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and
+                family effortlessly.
               </p>
             </div>
           </div>
@@ -95,6 +60,7 @@ export default function Home() {
         <div className="hero max-w-screen-lg mx-auto">
           <div className="hero-content lg:flex-row flex-col">
             <Image
+              style={{ boxShadow: "0 0px 10px 6px rgba(0, 0, 0, 0.1)" }}
               alt="hero"
               src="/undraw_team_spirit_re_yl1v.svg"
               className="max-w-sm rounded-4xl shadow-2xl p-4"
@@ -102,8 +68,14 @@ export default function Home() {
               height={400}
             />
             <div>
-              <h2 className="text-3xl font-bold">The Only Group Expense Tracking App You&apos;ll ever Need</h2>
-              <p className="text-xl py-6">Used by students, travelers, friends, couples, and families.</p>
+              <h2 className="text-3xl font-bold">Quick and Simple</h2>
+              <p className="text-xl py-6">
+                Experience seamless navigation with our mobile-optimized design. Each page presents only essential
+                information, avoiding clutter. Interactive fields expand only when clicked, making data entry
+                efficient—just tap, update, and move on. The app intuitively guides you from creating groups to viewing
+                detailed transactions and settings, with each action smoothly leading you to relevant pages without
+                unnecessary steps.
+              </p>
             </div>
           </div>
         </div>
@@ -113,18 +85,21 @@ export default function Home() {
         <div className="hero max-w-screen-lg mx-auto">
           <div className="hero-content lg:flex-row-reverse flex-col-reverse">
             <Image
+              style={{ boxShadow: "0 0px 10px 6px rgba(255, 255, 255, 0.1)" }}
               alt="hero"
-              src="/undraw_digital_currency_qpak.svg"
+              src="/devices.svg"
               className="max-w-sm rounded-4xl shadow-2xl p-4"
               width={400}
               height={400}
             />
             <div>
-              <h2 className="text-3xl font-bold">Multi-Currency Support with Real-Time Sync</h2>
+              <h2 className="text-3xl font-bold">Universal Compatibility</h2>
               <p className="text-xl py-6">
-                Support for over 100 currencies, coupled with real-time cloud synchronization, ensures that your expense
-                tracking is accurate and secure, no matter where you are. Subscribe for enhanced cloud features that
-                backup data seamlessly.
+                Our app is built as a Progressive Web App (PWA), ensuring flawless operation across all devices, whether
+                iPhone, Android, or desktop. Designed to function both online and offline, it can be added to your home
+                screen or desktop for an app-like experience. This feature allows you to access all functionalities of
+                our app with the convenience of native applications, promoting a seamless user experience on any
+                platform.
               </p>
             </div>
           </div>
@@ -135,18 +110,21 @@ export default function Home() {
         <div className="hero max-w-screen-lg mx-auto">
           <div className="hero-content lg:flex-row flex-col">
             <Image
+              style={{ boxShadow: "0 0px 10px 6px rgba(0, 0, 0, 0.1)" }}
               alt="hero"
-              src="/undraw_printing_invoices_-5-r4r.svg"
+              src="/offline.svg"
               className="max-w-sm rounded-4xl shadow-2xl p-4"
               width={400}
               height={400}
             />
             <div>
-              <h2 className="text-3xl font-bold">Innovative Settlement Solutions</h2>
+              <h2 className="text-3xl font-bold">Always Accessible</h2>
               <p className="text-xl py-6">
-                Discover the most efficient way to settle expenses using our smart algorithm, which minimizes the number
-                of transactions needed for clearing balances. View detailed reports and suggested repayments to simplify
-                debts.
+                Our app prioritizes your ability to manage finances without interruption, ensuring functionality both
+                online and offline. All data is stored locally first, allowing you to continue your activities even
+                without an internet connection. Changes are seamlessly synchronized across all your devices once
+                connectivity is restored, maintaining data integrity and providing a consistent experience no matter
+                where you are.
               </p>
             </div>
           </div>
@@ -157,17 +135,70 @@ export default function Home() {
         <div className="hero max-w-screen-lg mx-auto">
           <div className="hero-content lg:flex-row-reverse flex-col-reverse">
             <Image
+              style={{ boxShadow: "0 0px 10px 6px rgba(255, 255, 255, 0.1)" }}
               alt="hero"
-              src="/undraw_internet_on_the_go_re_vben.svg"
+              src="/graphic.svg"
               className="max-w-sm rounded-4xl shadow-2xl p-4"
               width={400}
               height={400}
             />
             <div>
-              <h2 className="text-3xl font-bold">Stay Informed On the Go</h2>
+              <h2 className="text-3xl font-bold">Flexible Splitting</h2>
               <p className="text-xl py-6">
-                Get immediate updates about your finances even without direct payment integrations. Our app allows you
-                to monitor who owes you and whom you owe, with easy-to-manage notifications and reminders.
+                Tailor expense sharing to fit any scenario with our adjustable weight system. Each participant can have
+                a set weight, reflecting their share in expenses, ranging from an equal split to a weighted division
+                based on consumption or participation. This allows for precise financial management whether splitting
+                costs equally, by percentage, or in unequal shares, catering to various needs like family units or
+                individual preferences within groups.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* hero feature 5 */}
+      <div className="hero bg-cyan-50 py-4 text-slate-900">
+        <div className="hero max-w-screen-lg mx-auto">
+          <div className="hero-content lg:flex-row flex-col">
+            <Image
+              style={{ boxShadow: "0 0px 10px 6px rgba(0, 0, 0, 0.1)" }}
+              alt="hero"
+              src="/world.svg"
+              className="max-w-sm rounded-4xl shadow-2xl p-4"
+              width={400}
+              height={400}
+            />
+            <div>
+              <h2 className="text-3xl font-bold">Multi-Currency Support</h2>
+              <p className="text-xl py-6">
+                Manage expenses in any currency with our versatile currency management system. Each group can define and
+                use an unlimited number of currencies, setting specific exchange rates that remain constant across all
+                transactions. The settlement calculations are based on the group&apos;s designated home currency,
+                simplifying financial management across different monetary units while maintaining consistency in
+                reporting and reconciliation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* hero feature 6 */}
+      <div className="hero py-4 text-slate-300">
+        <div className="hero max-w-screen-lg mx-auto">
+          <div className="hero-content lg:flex-row-reverse flex-col-reverse">
+            <Image
+              style={{ boxShadow: "0 0px 10px 6px rgba(255, 255, 255, 0.1)" }}
+              alt="hero"
+              src="/real-time-sync.svg"
+              className="max-w-sm rounded-4xl shadow-2xl p-4"
+              width={400}
+              height={400}
+            />
+            <div>
+              <h2 className="text-3xl font-bold">Cloud Sync</h2>
+              <p className="text-xl py-6">
+                Ensure your financial data is always up-to-date across all your devices with our basic cloud sync
+                feature. This synchronization allows for seamless data consistency, whether you&apos;re switching
+                between devices or ensuring all entries are current. It&apos;s ideal for users who operate the app on
+                multiple platforms, providing a unified view of their finances no matter where they access it from.
               </p>
             </div>
           </div>
