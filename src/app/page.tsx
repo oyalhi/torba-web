@@ -1,10 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { Header } from "../components/header";
 
 export default function Home() {
+  // state
+  const [isClient, setIsClient] = useState(false);
+
+  // effects
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // render
   return (
     <main className="flex flex-col h-screen pt-12">
       <Header />
@@ -23,41 +33,51 @@ export default function Home() {
                 width={350}
                 height={300}
               /> */}
-              <ReactPlayer
-                config={{
-                  youtube: {
-                    playerVars: {
-                      controls: 0,
-                      modestbranding: 1,
-                      rel: 0,
-                      showinfo: 0,
-                      start: 1,
-                      autoplay: 1,
+              {isClient ? (
+                <ReactPlayer
+                  config={{
+                    youtube: {
+                      playerVars: {
+                        controls: 0,
+                        modestbranding: 1,
+                        rel: 0,
+                        showinfo: 0,
+                        start: 1,
+                        autoplay: 1,
+                      },
+                      embedOptions: {
+                        allowfullscreen: false,
+                        frameBorder: 0,
+                        allow: "autoplay;",
+                      },
                     },
-                    embedOptions: {
-                      allowfullscreen: false,
-                      frameBorder: 0,
-                      allow: "autoplay;",
-                    },
-                  },
-                }}
-                fallback={
-                  <Image
-                    alt="hero"
-                    src="/app-home.png"
-                    className="max-w-sm rounded-4xl shadow-2xl"
-                    width={300}
-                    height={300}
-                  />
-                }
-                height={300 * 2.1679}
-                lazy="true"
-                pip={false}
-                playing
-                playsinline
-                url="https://youtu.be/4ZCQGkUnbzw"
-                width={300}
-              />
+                  }}
+                  fallback={
+                    <Image
+                      alt="hero"
+                      src="/app-home.png"
+                      className="max-w-sm rounded-4xl shadow-2xl"
+                      width={300}
+                      height={300}
+                    />
+                  }
+                  height={300 * 2.1679}
+                  lazy="true"
+                  pip={false}
+                  playing
+                  playsinline
+                  url="https://youtu.be/4ZCQGkUnbzw"
+                  width={300}
+                />
+              ) : (
+                <Image
+                  alt="hero"
+                  src="/app-home.png"
+                  className="max-w-sm rounded-4xl shadow-2xl"
+                  width={300}
+                  height={300}
+                />
+              )}
             </div>
             <div>
               <h1 className="text-5xl font-bold">Split expenses quickly and easily, online or offline</h1>
