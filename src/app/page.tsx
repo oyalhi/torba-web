@@ -1,23 +1,64 @@
 "use client";
 
 import Image from "next/image";
+import ReactPlayer from "react-player";
 import { Header } from "../components/header";
 
 export default function Home() {
   return (
     <main className="flex flex-col h-screen pt-12">
       <Header />
+      {/* show youtube player */}
+
       {/* hero intro */}
       <div className="hero text-slate-300">
         <div className="hero max-w-screen-lg mx-auto py-4">
           <div className="hero-content lg:flex-row-reverse flex-col-reverse">
-            <Image
-              alt="hero"
-              src="/app-home.png"
-              className="max-w-sm rounded-4xl shadow-2xl"
-              width={300}
-              height={300}
-            />
+            <div className="hero bg-transparent text-slate-300">
+              {/* <Image
+                style={{ position: "absolute" }}
+                alt="hero"
+                src="/iphone-15-pro.png"
+                className="max-w-sm rounded-4xl shadow-2xl"
+                width={350}
+                height={300}
+              /> */}
+              <ReactPlayer
+                config={{
+                  youtube: {
+                    playerVars: {
+                      controls: 0,
+                      modestbranding: 1,
+                      rel: 0,
+                      showinfo: 0,
+                      start: 1,
+                      autoplay: 1,
+                    },
+                    embedOptions: {
+                      allowfullscreen: false,
+                      frameBorder: 0,
+                      allow: "autoplay;",
+                    },
+                  },
+                }}
+                fallback={
+                  <Image
+                    alt="hero"
+                    src="/app-home.png"
+                    className="max-w-sm rounded-4xl shadow-2xl"
+                    width={300}
+                    height={300}
+                  />
+                }
+                height={300 * 2.1679}
+                lazy="true"
+                pip={false}
+                playing
+                playsinline
+                url="https://youtu.be/4ZCQGkUnbzw"
+                width={300}
+              />
+            </div>
             <div>
               <h1 className="text-5xl font-bold">Split expenses quickly and easily, online or offline</h1>
               <p className="text-xl py-6">
@@ -28,33 +69,19 @@ export default function Home() {
         </div>
       </div>
       {/* hero feature 1 */}
-      <div className="hero bg-cyan-50 py-4 text-slate-900 border-b border-cyan-700">
-        <div className="hero max-w-screen-lg mx-auto">
-          <div>
-            <h2 className="text-3xl font-bold text-center">
-              The Only Group Expense Tracking App You&apos;ll ever Need
-            </h2>
-            <p className="text-xl text-center py-4">Used by students, travelers, friends, couples, and families.</p>
-          </div>
-        </div>
-      </div>
-      <div className="hero bg-cyan-50 py-4 text-slate-900">
+      <div className="hero bg-cyan-50 py-24 text-slate-900">
         <div className="hero max-w-screen-lg mx-auto">
           <div className="hero-content lg:flex-row flex-col">
             <Image
               alt="hero"
-              src="/app-home.png"
-              className="max-w-sm rounded-4xl shadow-2xl"
-              width={300}
-              height={300}
+              src="/undraw_team_spirit_re_yl1v.svg"
+              className="max-w-sm rounded-4xl shadow-2xl p-4"
+              width={400}
+              height={400}
             />
             <div>
-              <h2 className="text-3xl font-bold">Effortless Group Expense Management</h2>
-              <p className="text-xl py-6">
-                Create and manage expense lists for any group activity—be it holidays, sports teams, or shared
-                households. Our intuitive interface makes it easy to add and track expenses, even offline or with
-                unreliable internet connections.
-              </p>
+              <h2 className="text-3xl font-bold">The Only Group Expense Tracking App You&apos;ll ever Need</h2>
+              <p className="text-xl py-6">Used by students, travelers, friends, couples, and families.</p>
             </div>
           </div>
         </div>
@@ -65,10 +92,10 @@ export default function Home() {
           <div className="hero-content lg:flex-row-reverse flex-col-reverse">
             <Image
               alt="hero"
-              src="/app-home.png"
-              className="max-w-sm rounded-4xl shadow-2xl"
-              width={300}
-              height={300}
+              src="/undraw_digital_currency_qpak.svg"
+              className="max-w-sm rounded-4xl shadow-2xl p-4"
+              width={400}
+              height={400}
             />
             <div>
               <h2 className="text-3xl font-bold">Multi-Currency Support with Real-Time Sync</h2>
@@ -87,10 +114,10 @@ export default function Home() {
           <div className="hero-content lg:flex-row flex-col">
             <Image
               alt="hero"
-              src="/app-home.png"
-              className="max-w-sm rounded-4xl shadow-2xl"
-              width={300}
-              height={300}
+              src="/undraw_printing_invoices_-5-r4r.svg"
+              className="max-w-sm rounded-4xl shadow-2xl p-4"
+              width={400}
+              height={400}
             />
             <div>
               <h2 className="text-3xl font-bold">Innovative Settlement Solutions</h2>
@@ -109,10 +136,10 @@ export default function Home() {
           <div className="hero-content lg:flex-row-reverse flex-col-reverse">
             <Image
               alt="hero"
-              src="/app-home.png"
-              className="max-w-sm rounded-4xl shadow-2xl"
-              width={300}
-              height={300}
+              src="/undraw_internet_on_the_go_re_vben.svg"
+              className="max-w-sm rounded-4xl shadow-2xl p-4"
+              width={400}
+              height={400}
             />
             <div>
               <h2 className="text-3xl font-bold">Stay Informed On the Go</h2>
