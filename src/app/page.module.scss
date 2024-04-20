@@ -34,6 +34,9 @@
   font-size: 48px;
   line-height: 1;
   font-weight: 700;
+  + .text {
+    padding-bottom: 0;
+  }
 }
 
 .text {
@@ -52,9 +55,20 @@
   }
 }
 
+.largeHidden {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  .largeHidden {
+    display: block;
+  }
+  .smallHidden {
+    display: none;
+  }
+
   .intro {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
   }
 

@@ -19,6 +19,13 @@ export default function Home() {
   return (
     <main className={styles.root}>
       <div className={`${styles.intro} text-slate-300`}>
+        <div className={styles.largeHidden}>
+          <h1 className={styles.title}>Split expenses quickly and easily, online or offline</h1>
+          <p className={styles.text}>
+            &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and family
+            effortlessly.
+          </p>
+        </div>
         <div className={styles.iframeContainer}>
           <iframe
             className={styles.iframe}
@@ -32,14 +39,13 @@ export default function Home() {
           />
         </div>
         <div className={styles.infoContainer}>
-          <div>
+          <div className={styles.smallHidden}>
             <h1 className={styles.title}>Split expenses quickly and easily, online or offline</h1>
             <p className={styles.text}>
               &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and family
               effortlessly.
             </p>
           </div>
-
           <div className={styles.tryNow}>
             <p className={styles.text}>
               <strong>Free to try – no credit card or registration required.</strong>
