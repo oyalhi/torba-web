@@ -3,20 +3,16 @@ import { appConfig } from "../utils/app-config";
 
 export function Header() {
   return (
-    <nav className="px-4 py-2 fixed top-0 bg-cyan-950 z-10 w-full">
-      <div className="max-w-screen-lg mx-auto flex flex-row items-center">
-        <Image src="/logo.png" alt="logo" className="h-10 w-10" width={80} height={80} />
-        <h1 className="text-white text-2xl font-bold ml-4">Torba Split Cost</h1>
+    <nav className="fixed top-0 z-10 w-full px-4 py-2 bg-cyan-950">
+      <div className="flex flex-row items-center max-w-screen-lg mx-auto">
+        <Image src="/logo.png" alt="logo" className="w-10 h-10" width={80} height={80} />
+        <h1 className="ml-4 text-2xl font-bold text-white">Torba Split Cost</h1>
 
         <div className="flex-grow" />
 
-        <button
-          className="btn btn-primary btn-sm"
-          onClick={() => {
-            window.location.href = appConfig.clientUrl;
-          }}>
+        <a href={appConfig.clientUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
           Try Now
-        </button>
+        </a>
       </div>
     </nav>
   );

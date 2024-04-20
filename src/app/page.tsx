@@ -1,10 +1,8 @@
-/** @jsxImportSource @emotion/react */
 "use client";
 
-import { css } from "@emotion/react";
 import { useEffect, useState } from "react";
-import { Header } from "../components/header";
 import { Hero } from "../components/hero";
+import { appConfig } from "../utils/app-config";
 import { heros } from "./data/heros";
 import styles from "./page.module.scss";
 
@@ -20,20 +18,10 @@ export default function Home() {
   // render
   return (
     <main className={styles.root}>
-      <Header />
-      {/* show youtube player */}
-
       <div className={`${styles.intro} text-slate-300`}>
-        <div
-          css={css`
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-          `}>
+        <div className={styles.iframeContainer}>
           <iframe
-            css={css`
-              border-radius: 42px;
-            `}
+            className={styles.iframe}
             id="player"
             width="299"
             height="651"
@@ -43,18 +31,23 @@ export default function Home() {
             allowFullScreen
           />
         </div>
-        <div
-          css={css`
-            flex: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-          `}>
-          <h1 className="text-5xl font-bold">Split expenses quickly and easily, online or offline</h1>
-          <p className="text-xl py-6">
-            &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and family
-            effortlessly.
-          </p>
+        <div className={styles.infoContainer}>
+          <div>
+            <h1 className={styles.title}>Split expenses quickly and easily, online or offline</h1>
+            <p className={styles.text}>
+              &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and family
+              effortlessly.
+            </p>
+          </div>
+
+          <div className={styles.tryNow}>
+            <p className={styles.text}>
+              <strong>Free to try – no credit card or registration required.</strong>
+            </p>
+            <a href={appConfig.clientUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-md">
+              Try Now
+            </a>
+          </div>
         </div>
       </div>
 
