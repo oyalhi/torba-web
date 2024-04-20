@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  padding-top: 48px;
+  height: 100vh;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 32px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+@media (max-width: 900px) {
+  .intro {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .imageContainer {
+    justify-content: center;
+  }
+}
