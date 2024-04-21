@@ -1,0 +1,20 @@
+Welcome to Torba Split Cost, where managing shared expenses becomes a breeze, online and off. Perfect for on-the-go lifestyles, our app is designed to work seamlessly in the background, whether you're high above the clouds, riding the subway, or enjoying the tranquility of an offline retreat. Your expenses are recorded in real-time and will sync across devices the moment you reconnect, keeping everyone's ledgers up-to-date effortlessly.
+
+In the context of the Torba Split Cost app, 'Groups' are a way to organize your shared expenses with different sets of people. Whether you're planning a trip, sharing a household, or managing any other joint financial activity, you can create a 'Group' for each scenario. Each group acts as a separate account that tracks the transactions specific to that activity or event. It allows you to invite people to join, input shared expenses, and keep track of who owes what to whom, all in one place. This feature is designed to make the process of managing shared costs transparent, straightforward, and hassle-free for everyone involved.
+
+Torba Split Cost is absolutely free to use, forever. Enjoy the convenience of creating groups and tracking costs at no charge. And if you're looking to elevate your experience, our subscription service unlocks the power of syncing and collaborative group sharing. With a simple monthly or yearly subscription, you and your peers can collaborate on expenses in real time, ensuring everyone is always on the same page. Choose the plan that suits you best and take your expense management to the next level.
+
+Having introduced the benefits and subscription options of Torba Split Cost, let's dive into how you can effortlessly manage your group expenses. We'll walk through the app step by step, starting with how to create and customize your first group.
+
+1. When you first open the Torba Split Cost app, you'll land on the home screen. Here, you can see your groups, manage your data backup and sync preferences, and customize the app's theme. But first, let's start by creating a new group to track our expenses.
+
+2. In the Groups tab, you'll notice you have no groups yet. Let's change that. Tap the '+' icon to create a new group. This is where you can organize and manage your expenses for different activities or trips.
+
+3. Now, we're setting up our group. Let's name it 'Trip to Italy' and add a description for more context. You can also mark this group as a favorite for easy access later on.
+
+4. Next step, we need to add people to our group. You can include all your trip buddies here by entering their name, email, and default weight which might come in handy for splitting expenses unevenly, if needed.
+
+5. When adding a new person, simply fill out their information and hit 'Save'. You can add as many people as you need. Afterward, you'll see the updated group details including the number of people and the total cost. Let's add people to our first group.
+[adds 4 people: Emily, Jessica, Megan, Laura]
+
+6. Inside the group, you can review all transactions, the list of people involved, and keep an eye on the total cost. This detailed view will help you manage expenses throughout your Trip to Italy.
