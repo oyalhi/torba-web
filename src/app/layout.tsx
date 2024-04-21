@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { Footer } from "../components/footer";
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>

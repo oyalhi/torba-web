@@ -6,6 +6,9 @@ export const appConfig = {
     publishableKey: process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? "",
   },
   clientUrl: process.env.NEXT_PUBLIC_CLIENT_URL ?? "",
+  legal: {
+    privacyPolicyUrl: process.env.NEXT_PUBLIC_PRIVACY_POLICY_URL ?? "",
+  },
 };
 
 const appConfigSchema = z.object({
