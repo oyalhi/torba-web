@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { appConfig } from "../utils/app-config";
 import styles from "./footer.module.scss";
 
 export function Footer() {
@@ -14,10 +14,9 @@ export function Footer() {
         <h3 className={styles.infoTitle}>Company</h3>
         <ul className={styles.list}>
           <li>
-            <Link href="/terms">Terms & Conditions</Link>
-          </li>
-          <li>
-            <Link href="/privacy">Privacy Policy</Link>
+            <a href={appConfig.legal.privacyPolicyUrl} target="_blank" rel="noopener noreferrer">
+              Privacy Policy
+            </a>
           </li>
         </ul>
       </div>
