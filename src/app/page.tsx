@@ -31,8 +31,8 @@ export default function Home() {
             className={styles.iframe}
             id="player"
             width="299"
-            height="651"
-            src="https://www.youtube.com/embed/4ZCQGkUnbzw?rel=0&autohide=1&showinfo=0&wmode=opaque"
+            height="531"
+            src={appConfig.demoUrl}
             title="Torba Split Cost Demo"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
