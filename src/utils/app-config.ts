@@ -9,9 +9,11 @@ export const appConfig = {
   legal: {
     privacyPolicyUrl: process.env.NEXT_PUBLIC_PRIVACY_POLICY_URL ?? "",
   },
+  demoUrl: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
 };
 
 const appConfigSchema = z.object({
+  demoUrl: z.string(),
   clientUrl: z.string(),
   siteUrl: z.string(),
   stripe: z.object({
