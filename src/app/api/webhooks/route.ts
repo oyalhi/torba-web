@@ -65,6 +65,7 @@ export async function POST(req: NextRequest) {
           isUpdateBilling: event.type === "customer.subscription.created",
         });
         break;
+
       case "checkout.session.completed":
         const checkoutSession = event.data.object as Stripe.Checkout.Session;
         if (checkoutSession.mode === "subscription") {
@@ -76,6 +77,15 @@ export async function POST(req: NextRequest) {
           });
         }
         break;
+
+      case "customer.created":
+        console.log("🔔  Customer created event received.");
+        break;
+
+      case "checkout.session.expired":
+        console.log("🔔  Checkout session expired event received.");
+        break;
+
       default:
         throw new Error("Unhandled relevant event!");
     }
