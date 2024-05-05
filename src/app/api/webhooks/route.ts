@@ -6,9 +6,11 @@ import { stripe } from "../../../utils/stripe/stripe-config";
 
 const relevantEvents = new Set([
   "checkout.session.completed",
+  "checkout.session.expired",
+  "customer.created",
   "customer.subscription.created",
-  "customer.subscription.updated",
   "customer.subscription.deleted",
+  "customer.subscription.updated",
 ]);
 
 const corsHeaders = {
