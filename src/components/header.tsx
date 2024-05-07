@@ -1,5 +1,7 @@
+import { track } from "@vercel/analytics/react";
 import Image from "next/image";
 import { appConfig } from "../utils/app-config";
+import { trackKeys } from "../utils/constants";
 
 export function Header() {
   return (
@@ -10,7 +12,14 @@ export function Header() {
 
         <div className="flex-grow" />
 
-        <a href={appConfig.clientUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
+        <a
+          href={appConfig.clientUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary btn-sm"
+          onClick={() => {
+            track(trackKeys.buttonClickTryNow, { source: "header" });
+          }}>
           Try Now
         </a>
       </div>
