@@ -1,3 +1,5 @@
+"use client";
+
 import { track } from "@vercel/analytics/react";
 import Image from "next/image";
 import { appConfig } from "../utils/app-config";
