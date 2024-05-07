@@ -1,20 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { track } from "@vercel/analytics/react";
 import { Hero } from "../components/hero";
 import { appConfig } from "../utils/app-config";
+import { trackKeys } from "../utils/constants";
 import { heros } from "./data/heros";
 import styles from "./page.module.scss";
 
 export default function Home() {
-  // state
-  const [isClient, setIsClient] = useState(false);
-
-  // effects
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   // render
   return (
     <main className={styles.root}>
@@ -50,7 +43,14 @@ export default function Home() {
             <p className={styles.text}>
               <strong>Free to try – no credit card or registration required.</strong>
             </p>
-            <a href={appConfig.clientUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-md">
+            <a
+              href={appConfig.clientUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary btn-md"
+              onClick={() => {
+                track(trackKeys.buttonClickTryNow, { source: "hero" });
+              }}>
               Try Now
             </a>
           </div>
