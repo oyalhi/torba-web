@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className={`${styles.footer} text-slate-50`}>
       <div className={styles.container}>
-        <h3 className={styles.title}>Torba Split Cost</h3>
+        <h3 className={styles.title}>Torba Split</h3>
         <p className={styles.text}>
           &copy; {new Date().getFullYear()} Yalhi Software Solutions Inc. All rights reserved.
         </p>

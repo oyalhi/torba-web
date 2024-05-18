@@ -15,7 +15,7 @@ export default function Home() {
         <div className={styles.largeHidden}>
           <h1 className={styles.title}>Split expenses quickly and easily, online or offline</h1>
           <p className={styles.text}>
-            &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and family
+            &quot;Torba Split&quot; is your go-to free tool for managing shared expenses with friends and family
             effortlessly.
           </p>
         </div>
@@ -26,7 +26,7 @@ export default function Home() {
             width="299"
             height="531"
             src={appConfig.demoUrl}
-            title="Torba Split Cost Demo"
+            title="Torba Split Demo"
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -35,7 +35,7 @@ export default function Home() {
           <div className={styles.smallHidden}>
             <h1 className={styles.title}>Split expenses quickly and easily, online or offline</h1>
             <p className={styles.text}>
-              &quot;Torba Split Cost&quot; is your go-to free tool for managing shared expenses with friends and family
+              &quot;Torba Split&quot; is your go-to free tool for managing shared expenses with friends and family
               effortlessly.
             </p>
           </div>
