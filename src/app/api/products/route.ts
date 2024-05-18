@@ -7,7 +7,6 @@ import {
   getOrCreateStripeCustomer,
   getProductsWithPrices,
 } from "../../../utils/stripe/stripe-utils";
-import Stripe from "stripe";
 
 const corsHeaders = {
   "Content-Type": "application/json",

@@ -8,7 +8,7 @@ import "./globals.css";
 const inter = Quicksand({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Torba Split Cost",
+  title: "Torba Split",
   description: "Split expenses quickly and easily, online or offline",
 };
 
