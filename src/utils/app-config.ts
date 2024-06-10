@@ -1,5 +1,7 @@
 import z from "zod";
 
+const mailgunDomain = process.env.MAILGUN_DOMAIN;
+
 export const appConfig = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "",
   stripe: {
@@ -10,6 +12,12 @@ export const appConfig = {
     privacyPolicyUrl: process.env.NEXT_PUBLIC_PRIVACY_POLICY_URL ?? "",
   },
   demoUrl: process.env.NEXT_PUBLIC_DEMO_URL ?? "",
+  mailgun: {
+    adminEmail: process.env.ADMIN_EMAIL ?? "",
+    apiKey: process.env.MAILGUN_API_KEY ?? "",
+    domain: mailgunDomain ?? "",
+    feedbackEmail: process.env.FEEDBACK_EMAIL ?? "",
+  },
 };
 
 const appConfigSchema = z.object({
@@ -18,6 +26,12 @@ const appConfigSchema = z.object({
   siteUrl: z.string(),
   stripe: z.object({
     publishableKey: z.string(),
+  }),
+  mailgun: z.object({
+    adminEmail: z.string().email(),
+    apiKey: z.string(),
+    domain: z.string(),
+    feedbackEmail: z.string().email(),
   }),
 });
 
