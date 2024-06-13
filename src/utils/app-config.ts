@@ -27,12 +27,16 @@ const appConfigSchema = z.object({
   stripe: z.object({
     publishableKey: z.string(),
   }),
-  mailgun: z.object({
-    adminEmail: z.string().email(),
-    apiKey: z.string(),
-    domain: z.string(),
-    feedbackEmail: z.string().email(),
-  }),
 });
 
-appConfigSchema.parse(appConfig);
+try {
+  appConfigSchema.parse(appConfig);
+} catch (e) {
+  if (e instanceof z.ZodError) {
+    console.log("accountSchema: errors", e.errors);
+    console.log(appConfig);
+  } else {
+    console.warn("accountSchema: we should not be here!!!");
+    console.error(e);
+  }
+}
